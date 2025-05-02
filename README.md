@@ -41,7 +41,7 @@ As a frontend developer passionate about learning and growing, I wanted to creat
 ![Portfolio Screenshot](![Screenshot 2025-05-02 194823](https://github.com/user-attachments/assets/d6ba35a7-ffa9-4ee0-aa14-421057884f03)
 )
 
-🔗 **Live Demo**: [Click here to view](https://your-live-portfolio-link.com)
+🔗 **Live Demo**: [Click here to view]([https://your-live-portfolio-link.com](https://portfolio-website2-z52e.vercel.app/))
 
 ---
 
