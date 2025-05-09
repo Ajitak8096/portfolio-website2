@@ -156,27 +156,51 @@ span {
 }
 
 .about {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 8rem;
     background: var(--snd-bf-color);
+    padding: 5rem 10%; /* Add padding for better spacing */
 }
 
 .about-img img {
-    width: 35vw;
+    width: 25vw;
+}
+
+.about-content {
+    max-width: 700px; /* Increase width of the text container */
+    line-height: 1.8;  /* Improve readability */
 }
 
 .heading {
-    text-align: left; /* Aligned to left */
-    font-size: 2.8rem; /* Smaller font size */
-    font-weight: 700;
+    text-align: left;
+    font-size: 5rem; /* Increase font size */
+    font-weight: 800;
     color: var(--text-color);
 }
 
 .heading span {
     color: var(--main-color);
 }
+
+.about-content h3 {
+    font-size: 2.8rem; /* Make subheading larger */
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    font-size: 1.6rem; /* Increase paragraph font size */
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    text-align: justify; /* Optional: for clean text block appearance */
+}
+
+.about-content .btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.6rem;
+}
+
 
 .services {
     background: var(--snd-bf-color);
