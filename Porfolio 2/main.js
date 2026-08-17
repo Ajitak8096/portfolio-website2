@@ -1,66 +1,507 @@
-/* ============================== toggle icon navbar =======================================*/
+/* =========================================================
+   CUSTOM CIRCLE CURSOR
+========================================================= */
 
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar'); // Fixed selector ('.navbar' instead of 'navbar')
+const cursorDot =
+    document.querySelector('.cursor-dot');
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('fa-xmark');
-    navbar.classList.toggle('active');
-};
+const cursorCircle =
+    document.querySelector('.cursor-circle');
 
-/* ============================== scroll section active link =======================================*/
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
 
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+const isTouchDevice =
+    window.matchMedia(
+        '(hover: none), (pointer: coarse)'
+    ).matches;
 
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(link => { // Fixed `.forEach.apply()` issue
-                link.classList.remove('active');
-            });
 
-            let activeLink = document.querySelector('header nav a[href*="' + id + '"]');
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
+if (
+    cursorDot &&
+    cursorCircle &&
+    !isTouchDevice
+) {
+
+    let mouseX =
+        window.innerWidth / 2;
+
+    let mouseY =
+        window.innerHeight / 2;
+
+    let circleX = mouseX;
+    let circleY = mouseY;
+
+
+    document.addEventListener(
+        'mousemove',
+        event => {
+
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+
+
+            cursorDot.style.left =
+                `${mouseX}px`;
+
+            cursorDot.style.top =
+                `${mouseY}px`;
+
         }
-    });
-
-    /*toggle icon navbar*/
-    let header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 100);
-
-    /*=======  remove toggle icon and navigation =======================*/
-    menuIcon.classList.remove('fa-xmark');
-    navbar.classList.remove('active');
-};
-
-    /*=======  remove toggle icon and navigation =======================*/
-
-ScrollReveal({
-    distance: '80px',
-    duration: 2000,
-    delay: 200,
-});
-
-ScrollReveal().reveal('.home-content, heading', {origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'button'});
-ScrollReveal().reveal('.home-contact h1, .about-img', { origin: 'left' });
-ScrollReveal().reveal('.home-contact p, .about-content', { origin: 'right' });
-
-/*-- Typed js  -->*/
-const typed = new Typed('.multiple-text', {
-    strings: ['Frontend Developer', 'Web Designer', 'Engineer'],
-    typeSpeed: 70,
-    backSpeed: 70,
-    backDelay: 1000,
-    loop: true,
-});
+    );
 
 
+    function animateCursor() {
 
+        circleX +=
+            (mouseX - circleX) * 0.12;
+
+        circleY +=
+            (mouseY - circleY) * 0.12;
+
+
+        cursorCircle.style.left =
+            `${circleX}px`;
+
+        cursorCircle.style.top =
+            `${circleY}px`;
+
+
+        requestAnimationFrame(
+            animateCursor
+        );
+
+    }
+
+
+    animateCursor();
+
+
+    const cursorTargets =
+        document.querySelectorAll(
+            `
+            a,
+            button,
+            input,
+            textarea,
+            .portfolio-box,
+            .skill-group,
+            .services-box
+            `
+        );
+
+
+    cursorTargets.forEach(
+        element => {
+
+            element.addEventListener(
+                'mouseenter',
+                () => {
+
+                    cursorCircle.classList.add(
+                        'hover'
+                    );
+
+                    cursorDot.classList.add(
+                        'hover'
+                    );
+
+                }
+            );
+
+
+            element.addEventListener(
+                'mouseleave',
+                () => {
+
+                    cursorCircle.classList.remove(
+                        'hover'
+                    );
+
+                    cursorDot.classList.remove(
+                        'hover'
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    document.addEventListener(
+        'mouseleave',
+        () => {
+
+            cursorCircle.style.opacity = '0';
+
+            cursorDot.style.opacity = '0';
+
+        }
+    );
+
+
+    document.addEventListener(
+        'mouseenter',
+        () => {
+
+            cursorCircle.style.opacity = '1';
+
+            cursorDot.style.opacity = '1';
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+const menuIcon =
+    document.querySelector('#menu-icon');
+
+const navbar =
+    document.querySelector('.navbar');
+
+
+if (menuIcon && navbar) {
+
+    menuIcon.addEventListener(
+        'click',
+        () => {
+
+            const isOpen =
+                navbar.classList.toggle(
+                    'active'
+                );
+
+
+            menuIcon.innerHTML =
+                isOpen
+                    ? '<i class="fa-solid fa-xmark"></i>'
+                    : '<i class="fa-solid fa-bars"></i>';
+
+
+            menuIcon.setAttribute(
+                'aria-expanded',
+                String(isOpen)
+            );
+
+        }
+    );
+
+
+    document
+        .querySelectorAll('.navbar a')
+        .forEach(
+            link => {
+
+                link.addEventListener(
+                    'click',
+                    () => {
+
+                        navbar.classList.remove(
+                            'active'
+                        );
+
+
+                        menuIcon.innerHTML =
+                            '<i class="fa-solid fa-bars"></i>';
+
+
+                        menuIcon.setAttribute(
+                            'aria-expanded',
+                            'false'
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   STICKY HEADER + ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll(
+        'main section[id]'
+    );
+
+const navLinks =
+    document.querySelectorAll(
+        '.navbar a'
+    );
+
+const header =
+    document.querySelector('.header');
+
+
+function updateNavigation() {
+
+    const scrollPosition =
+        window.scrollY + 220;
+
+
+    if (header) {
+
+        header.classList.toggle(
+            'sticky',
+            window.scrollY > 50
+        );
+
+    }
+
+
+    sections.forEach(
+        section => {
+
+            const top =
+                section.offsetTop;
+
+            const bottom =
+                top + section.offsetHeight;
+
+            const id =
+                section.getAttribute(
+                    'id'
+                );
+
+
+            if (
+                scrollPosition >= top &&
+                scrollPosition < bottom
+            ) {
+
+                navLinks.forEach(
+                    link => {
+
+                        link.classList.remove(
+                            'active'
+                        );
+
+                    }
+                );
+
+
+                const activeLink =
+                    document.querySelector(
+                        `.navbar a[href="#${id}"]`
+                    );
+
+
+                if (activeLink) {
+
+                    activeLink.classList.add(
+                        'active'
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+window.addEventListener(
+    'scroll',
+    updateNavigation,
+    {
+        passive: true
+    }
+);
+
+
+updateNavigation();
+
+
+/* =========================================================
+   TYPED HERO TEXT
+========================================================= */
+
+if (
+    typeof Typed !== 'undefined' &&
+    document.querySelector('.multiple-text')
+) {
+
+    new Typed(
+        '.multiple-text',
+        {
+
+            strings: [
+
+                'Full-Stack Applications',
+
+                'AI-Powered Solutions',
+
+                'Modern Web Experiences',
+
+                'Scalable Digital Products'
+
+            ],
+
+            typeSpeed: 55,
+
+            backSpeed: 35,
+
+            backDelay: 1400,
+
+            loop: true
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+if (
+    typeof ScrollReveal !== 'undefined'
+) {
+
+    const reveal =
+        ScrollReveal({
+
+            distance: '55px',
+
+            duration: 900,
+
+            delay: 100,
+
+            easing: 'ease-out',
+
+            reset: false
+
+        });
+
+
+    reveal.reveal(
+        '.about-img, .contact-copy',
+        {
+            origin: 'left'
+        }
+    );
+
+
+    reveal.reveal(
+        '.about-content, .contact-form',
+        {
+            origin: 'right'
+        }
+    );
+
+
+    reveal.reveal(
+        '.section-heading',
+        {
+            origin: 'top'
+        }
+    );
+
+
+    reveal.reveal(
+        '.services-box, .skill-group, .portfolio-box',
+        {
+            origin: 'bottom',
+
+            interval: 120
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+    document.querySelector(
+        '#contact-form'
+    );
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        'submit',
+        event => {
+
+            event.preventDefault();
+
+
+            const formData =
+                new FormData(
+                    contactForm
+                );
+
+
+            const name =
+                formData.get('name') || '';
+
+            const email =
+                formData.get('email') || '';
+
+            const subject =
+                formData.get('subject') ||
+                'Portfolio enquiry';
+
+            const company =
+                formData.get('company') ||
+                'Not provided';
+
+            const message =
+                formData.get('message') ||
+                '';
+
+
+            const body = [
+
+                'Hello Ajit,',
+
+                '',
+
+                `Name: ${name}`,
+
+                `Email: ${email}`,
+
+                `Company: ${company}`,
+
+                '',
+
+                'Message:',
+
+                message
+
+            ].join('\n');
+
+
+            const mailto =
+                'mailto:ajitkumar8096@gmail.com' +
+
+                `?subject=${encodeURIComponent(
+                    subject
+                )}` +
+
+                `&body=${encodeURIComponent(
+                    body
+                )}`;
+
+
+            window.location.href =
+                mailto;
+
+        }
+    );
+
+}
