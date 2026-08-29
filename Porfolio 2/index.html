@@ -22,6 +22,112 @@
 
     <link rel="stylesheet" href="styles.css">
 </head>
+<!-- ================= PORTFOLIO AI ================= -->
+
+<button class="portfolio-ai-button" id="portfolio-ai-button">
+    <i class="fa-solid fa-sparkles"></i>
+    <span>Ask my Portfolio</span>
+</button>
+
+
+<div class="portfolio-ai-panel" id="portfolio-ai-panel">
+
+    <div class="ai-header">
+
+        <div class="ai-title">
+
+            <div class="ai-icon">
+                <i class="fa-solid fa-sparkles"></i>
+            </div>
+
+            <div>
+                <h3>Portfolio AI</h3>
+                <span>Ask me about Ajit</span>
+            </div>
+
+        </div>
+
+
+        <button
+            class="ai-close"
+            id="ai-close"
+            aria-label="Close Portfolio AI">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="ai-messages" id="ai-messages">
+
+        <div class="ai-message bot">
+
+            <div class="message-icon">
+                <i class="fa-solid fa-sparkles"></i>
+            </div>
+
+            <div class="message-content">
+
+                <p>
+                    Hi! 👋 I'm Ajit's Portfolio AI.
+                </p>
+
+                <p>
+                    Ask me about his skills, projects,
+                    experience or how to contact him.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="ai-suggestions">
+
+            <button data-question="Tell me about Ajit">
+                About Ajit
+            </button>
+
+            <button data-question="What are Ajit's skills?">
+                Skills
+            </button>
+
+            <button data-question="What is his strongest project?">
+                Best Project
+            </button>
+
+            <button data-question="How can I contact Ajit?">
+                Contact
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <form class="ai-input-area" id="ai-form">
+
+        <input
+            type="text"
+            id="ai-input"
+            placeholder="Ask something..."
+            autocomplete="off"
+            required
+        >
+
+        <button
+            type="submit"
+            aria-label="Send message">
+
+            <i class="fa-solid fa-arrow-up"></i>
+
+        </button>
+
+    </form>
+
+</div>
 
 <body>
 
@@ -275,93 +381,165 @@
 
 
         <!-- ================= ABOUT ================= -->
+<section class="about" id="about">
 
-        <section class="about" id="about">
+    <div class="about-universe">
 
-            <div class="about-img">
+        <div class="universe-stars"></div>
 
-                <div class="about-image-frame">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+        <div class="orbit orbit-4"></div>
 
-                    <img src="assets/51119.jpg"
-                         alt="Ajit Kumar">
+        <span class="space-dot dot-1"></span>
+        <span class="space-dot dot-2"></span>
+        <span class="space-dot dot-3"></span>
+        <span class="space-dot dot-4"></span>
+        <span class="space-dot dot-5"></span>
 
+        <div class="about-core">
+            <span>AJ<span>.</span></span>
+        </div>
+
+        <a href="#home" class="about-planet planet-home">
+            <div class="planet-circle">
+                <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="planet-label">
+                <strong>Home</strong>
+                <small>Back to start</small>
+            </div>
+        </a>
+
+        <a href="#about" class="about-planet planet-about">
+            <div class="planet-circle">
+                <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="planet-label">
+                <strong>About</strong>
+                <small>Know more<br>about me</small>
+            </div>
+        </a>
+
+        <a href="#services" class="about-planet planet-experience">
+            <div class="planet-circle">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="planet-label">
+                <strong>Experience</strong>
+                <small>My journey &<br>experience</small>
+            </div>
+        </a>
+
+        <a href="#skills" class="about-planet planet-skills">
+            <div class="planet-circle">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="planet-label">
+                <strong>Skills</strong>
+                <small>Tech stack &<br>expertise</small>
+            </div>
+        </a>
+
+        <a href="#portfolio" class="about-planet planet-project">
+            <div class="planet-circle">
+                <i class="fa-regular fa-folder"></i>
+            </div>
+            <div class="planet-label">
+                <strong>Project</strong>
+                <small>Things I've built</small>
+            </div>
+        </a>
+
+        <a href="#contact" class="about-planet planet-contact">
+            <div class="planet-circle">
+                <i class="fa-regular fa-envelope"></i>
+            </div>
+            <div class="planet-label">
+                <strong>Contact</strong>
+                <small>Get in touch</small>
+            </div>
+        </a>
+
+        <div class="universe-hint">
+            <i class="fa-solid fa-computer-mouse"></i>
+            <span>Click on any planet to explore</span>
+        </div>
+
+    </div>
+
+
+    <div class="about-content about-modern-content">
+
+        <p class="section-kicker">01 / ABOUT</p>
+
+        <h2 class="heading">
+            Turning ideas into
+            <span>working products.</span>
+        </h2>
+
+        <h3>Software Developer</h3>
+
+        <p>
+            I'm a Computer Science graduate who enjoys building
+            practical software that combines clean interfaces,
+            reliable backend systems and intelligent features.
+        </p>
+
+        <p>
+            My work spans full-stack development, AI/ML,
+            data analysis and interactive web experiences.
+        </p>
+
+        <p>
+            I enjoy solving real problems, learning new technologies
+            and turning ideas into projects that are useful,
+            measurable and easy to use.
+        </p>
+
+        <div class="about-stats">
+
+            <div class="about-stat-card">
+                <div class="stat-icon purple">
+                    <i class="fa-solid fa-rocket"></i>
                 </div>
-
+                <div>
+                    <strong>5+</strong>
+                    <span>Projects</span>
+                </div>
             </div>
 
-
-            <div class="about-content">
-
-                <p class="section-kicker">
-                    01 / ABOUT
-                </p>
-
-
-                <h2 class="heading">
-
-                    Turning ideas into
-                    <span>working products.</span>
-
-                </h2>
-
-
-                <h3>
-                    Software Developer
-                </h3>
-
-
-                <p>
-                    I'm a Computer Science graduate who enjoys building
-                    practical software that combines clean interfaces,
-                    reliable backend systems and intelligent features.
-                </p>
-
-
-                <p>
-                    My work spans full-stack development, AI/ML,
-                    data analysis and interactive web experiences.
-                </p>
-
-
-                <p>
-                    I enjoy solving real problems, learning new technologies
-                    and turning ideas into projects that are useful,
-                    measurable and easy to use.
-                </p>
-
-
-                <div class="about-stats">
-
-                    <div>
-                        <strong>5+</strong>
-                        <span>Projects</span>
-                    </div>
-
-                    <div>
-                        <strong>10+</strong>
-                        <span>Technologies</span>
-                    </div>
-
-                    <div>
-                        <strong>3+</strong>
-                        <span>Internships & Simulations</span>
-                    </div>
-
+            <div class="about-stat-card">
+                <div class="stat-icon cyan">
+                    <i class="fa-solid fa-code"></i>
                 </div>
-
-
-                <a href="#contact"
-                   class="btn primary-btn">
-
-                    Let's Connect
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
-
+                <div>
+                    <strong>10+</strong>
+                    <span>Technologies</span>
+                </div>
             </div>
 
-        </section>
+            <div class="about-stat-card">
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div>
+                    <strong>3+</strong>
+                    <span>Internships</span>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="#contact" class="btn primary-btn about-connect-btn">
+            Let's Connect
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+</section>
 
 
         <!-- ================= EXPERIENCE ================= -->
@@ -504,173 +682,338 @@
         </section>
 
 
-        <!-- ================= SKILLS ================= -->
+        <!-- ================= TECH STACK ================= -->
 
-        <section class="skills" id="skills">
+<section class="tech-stack" id="skills">
 
-            <div class="section-heading">
+    <div class="tech-header">
 
-                <p class="section-kicker">
-                    03 / SKILLS
-                </p>
+        <p class="section-kicker">
+            03 / TECHNOLOGIES
+        </p>
+
+        <h2>
+            My <span>Tech Stack</span>
+        </h2>
+
+        <p>
+            Technologies I use to build products, solve problems
+            and bring ideas to life.
+        </p>
+
+    </div>
 
 
-                <h2 class="heading">
+    <!-- Floating Tech Area -->
 
-                    My <span>Tech Stack</span>
+    <div class="tech-world" id="tech-world">
 
-                </h2>
+        <!-- Decorative background -->
 
+        <div class="tech-glow glow-left"></div>
+        <div class="tech-glow glow-right"></div>
+
+
+        <!-- HTML -->
+
+        <div class="tech-ball"
+             data-tech="HTML5"
+             data-color="#ff5722">
+
+            <div class="ball-inner">
+
+                <i class="fa-brands fa-html5"></i>
+
+                <span>HTML5</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CSS -->
+
+        <div class="tech-ball"
+             data-tech="CSS3"
+             data-color="#2196f3">
+
+            <div class="ball-inner">
+
+                <i class="fa-brands fa-css3-alt"></i>
+
+                <span>CSS3</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- JavaScript -->
+
+        <div class="tech-ball"
+             data-tech="JavaScript"
+             data-color="#f7df1e">
+
+            <div class="ball-inner">
+
+                <i class="fa-brands fa-js"></i>
+
+                <span>JavaScript</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- React -->
+
+        <div class="tech-ball"
+             data-tech="React"
+             data-color="#61dafb">
+
+            <div class="ball-inner">
+
+                <i class="fa-brands fa-react"></i>
+
+                <span>React</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Node -->
+
+        <div class="tech-ball"
+             data-tech="Node.js"
+             data-color="#68a063">
+
+            <div class="ball-inner">
+
+                <i class="fa-brands fa-node-js"></i>
+
+                <span>Node.js</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Python -->
+
+        <div class="tech-ball"
+             data-tech="Python"
+             data-color="#3776ab">
+
+            <div class="ball-inner">
+
+                <i class="fa-brands fa-python"></i>
+
+                <span>Python</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Java -->
+
+        <div class="tech-ball"
+             data-tech="Java"
+             data-color="#e76f00">
+
+            <div class="ball-inner">
+
+                <i class="fa-brands fa-java"></i>
+
+                <span>Java</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Git -->
+
+        <div class="tech-ball"
+             data-tech="Git"
+             data-color="#f05032">
+
+            <div class="ball-inner">
+
+                <i class="fa-brands fa-git-alt"></i>
+
+                <span>Git</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- GitHub -->
+
+        <div class="tech-ball"
+             data-tech="GitHub"
+             data-color="#ffffff">
+
+            <div class="ball-inner">
+
+                <i class="fa-brands fa-github"></i>
+
+                <span>GitHub</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- MongoDB -->
+
+        <div class="tech-ball"
+             data-tech="MongoDB"
+             data-color="#47a248">
+
+            <div class="ball-inner">
+
+                <i class="fa-solid fa-leaf"></i>
+
+                <span>MongoDB</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- MySQL -->
+
+        <div class="tech-ball"
+             data-tech="MySQL"
+             data-color="#00758f">
+
+            <div class="ball-inner">
+
+                <i class="fa-solid fa-database"></i>
+
+                <span>MySQL</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Express -->
+
+        <div class="tech-ball"
+             data-tech="Express.js"
+             data-color="#ffffff">
+
+            <div class="ball-inner">
+
+                <strong>ex</strong>
+
+                <span>Express.js</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- REST API -->
+
+        <div class="tech-ball"
+             data-tech="REST API"
+             data-color="#ffca28">
+
+            <div class="ball-inner">
+
+                <i class="fa-solid fa-plug"></i>
+
+                <span>REST API</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Tailwind -->
+
+        <div class="tech-ball"
+             data-tech="Tailwind CSS"
+             data-color="#38bdf8">
+
+            <div class="ball-inner">
+
+                <i class="fa-solid fa-wind"></i>
+
+                <span>Tailwind</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- AI -->
+
+        <div class="tech-ball"
+             data-tech="AI / ML"
+             data-color="#a78bfa">
+
+            <div class="ball-inner">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <span>AI / ML</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- VS Code -->
+
+        <div class="tech-ball"
+             data-tech="VS Code"
+             data-color="#23a8f2">
+
+            <div class="ball-inner">
+
+                <i class="fa-solid fa-code"></i>
+
+                <span>VS Code</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Floating information -->
+
+        <div class="tech-info">
+
+            <div class="tech-info-icon">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    I love building with technology.
+                </h3>
 
                 <p>
-                    Tools and technologies I use to turn ideas
-                    into working software.
+                    From frontend interfaces to backend APIs,
+                    databases and AI-powered applications.
                 </p>
 
             </div>
 
+        </div>
 
-            <div class="skills-grid">
+    </div>
 
-                <div class="skill-group">
-
-                    <div class="skill-title">
-
-                        <i class="fa-solid fa-terminal"></i>
-
-                        <h3>Languages</h3>
-
-                    </div>
-
-
-                    <div class="skill-list">
-
-                        <span>Java</span>
-                        <span>JavaScript</span>
-                        <span>Python</span>
-                        <span>SQL</span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="skill-group">
-
-                    <div class="skill-title">
-
-                        <i class="fa-solid fa-layer-group"></i>
-
-                        <h3>Frontend</h3>
-
-                    </div>
-
-
-                    <div class="skill-list">
-
-                        <span>React</span>
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>Tailwind CSS</span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="skill-group">
-
-                    <div class="skill-title">
-
-                        <i class="fa-solid fa-server"></i>
-
-                        <h3>Backend</h3>
-
-                    </div>
-
-
-                    <div class="skill-list">
-
-                        <span>Node.js</span>
-                        <span>Express.js</span>
-                        <span>REST API</span>
-                        <span>JWT</span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="skill-group">
-
-                    <div class="skill-title">
-
-                        <i class="fa-solid fa-database"></i>
-
-                        <h3>Database</h3>
-
-                    </div>
-
-
-                    <div class="skill-list">
-
-                        <span>MongoDB</span>
-                        <span>MySQL</span>
-                        <span>DBMS</span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="skill-group">
-
-                    <div class="skill-title">
-
-                        <i class="fa-solid fa-chart-simple"></i>
-
-                        <h3>AI / Data</h3>
-
-                    </div>
-
-
-                    <div class="skill-list">
-
-                        <span>Scikit-learn</span>
-                        <span>TensorFlow</span>
-                        <span>Pandas</span>
-                        <span>Matplotlib</span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="skill-group">
-
-                    <div class="skill-title">
-
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                        <h3>Tools</h3>
-
-                    </div>
-
-
-                    <div class="skill-list">
-
-                        <span>Git</span>
-                        <span>GitHub</span>
-                        <span>Postman</span>
-                        <span>VS Code</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
+</section>
 
 
         <!-- ================= PROJECTS ================= -->
@@ -1032,6 +1375,162 @@
             </div>
 
         </section>
+        <!-- ================= GITHUB ================= -->
+
+<section class="github-section" id="github">
+
+    <div class="section-heading">
+
+        <p class="section-kicker">
+            05 / GITHUB
+        </p>
+
+        <h2 class="heading">
+            What I'm <span>Building</span>
+        </h2>
+
+        <p>
+            A live look at my GitHub projects and development activity.
+        </p>
+
+    </div>
+
+
+    <div class="github-profile-card">
+
+        <div class="github-profile-left">
+
+            <div class="github-avatar">
+                <img
+                    id="github-avatar"
+                    src=""
+                    alt="GitHub profile">
+            </div>
+
+            <div>
+
+                <h3 id="github-name">
+                    Loading...
+                </h3>
+
+                <p id="github-username">
+                    @Ajitak8096
+                </p>
+
+                <p id="github-bio">
+                    Loading GitHub profile...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="github-stats">
+
+            <div class="github-stat">
+
+                <strong id="github-repos">
+                    —
+                </strong>
+
+                <span>
+                    Repositories
+                </span>
+
+            </div>
+
+
+            <div class="github-stat">
+
+                <strong id="github-followers">
+                    —
+                </strong>
+
+                <span>
+                    Followers
+                </span>
+
+            </div>
+
+
+            <div class="github-stat">
+
+                <strong id="github-following">
+                    —
+                </strong>
+
+                <span>
+                    Following
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="https://github.com/Ajitak8096"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn primary-btn github-button">
+
+            Visit GitHub
+
+            <i class="fa-brands fa-github"></i>
+
+        </a>
+
+    </div>
+
+
+    <div class="github-repositories">
+
+        <div class="github-repositories-header">
+
+            <div>
+
+                <span class="section-kicker">
+                    RECENT REPOSITORIES
+                </span>
+
+                <h3>
+                    Latest Projects
+                </h3>
+
+            </div>
+
+            <span
+                class="github-live">
+
+                <span></span>
+
+                LIVE
+
+            </span>
+
+        </div>
+
+
+        <div
+            class="github-grid"
+            id="github-grid">
+
+            <div class="github-loading">
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Loading repositories...
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
         <!-- ================= CONTACT ================= -->
