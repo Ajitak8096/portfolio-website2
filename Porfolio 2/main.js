@@ -2388,3 +2388,285 @@ if (techWorld && techBalls.length) {
     );
 
 })();
+/* =========================================================
+   3D EXPERIENCE CARDS
+   Mouse-following perspective effect
+========================================================= */
+
+(function () {
+
+    const cards =
+        document.querySelectorAll(
+            ".experience-3d-card"
+        );
+
+
+    if (!cards.length) return;
+
+
+    const isMobile =
+        window.matchMedia(
+            "(max-width: 700px)"
+        ).matches;
+
+
+    if (isMobile) return;
+
+
+    cards.forEach((card) => {
+
+        card.addEventListener(
+            "mousemove",
+            function (event) {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX - rect.left;
+
+
+                const y =
+                    event.clientY - rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateY =
+                    ((x - centerX) /
+                        centerX) * 8;
+
+
+                const rotateX =
+                    ((centerY - y) /
+                        centerY) * 8;
+
+
+                card.style.setProperty(
+                    "--rotate-x",
+                    `${rotateX}deg`
+                );
+
+
+                card.style.setProperty(
+                    "--rotate-y",
+                    `${rotateY}deg`
+                );
+
+
+                /*
+                 * Move the glow according
+                 * to the cursor position.
+                 */
+
+                const glow =
+                    card.querySelector(
+                        ".card-glow"
+                    );
+
+
+                if (glow) {
+
+                    glow.style.transform =
+                        `translate(
+                            ${(x - centerX) * 0.08}px,
+                            ${(y - centerY) * 0.08}px
+                        )`;
+
+                }
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            function () {
+
+                card.style.setProperty(
+                    "--rotate-x",
+                    "0deg"
+                );
+
+
+                card.style.setProperty(
+                    "--rotate-y",
+                    "0deg"
+                );
+
+
+                const glow =
+                    card.querySelector(
+                        ".card-glow"
+                    );
+
+
+                if (glow) {
+
+                    glow.style.transform =
+                        "translate(0,0)";
+
+                }
+
+            }
+        );
+
+    });
+
+})();
+/* =========================================================
+   3D PROJECT CARDS
+   Mouse-following perspective interaction
+========================================================= */
+
+(function () {
+
+    const projectCards =
+        document.querySelectorAll(
+            ".project-3d-card"
+        );
+
+
+    if (!projectCards.length) return;
+
+
+    const desktop =
+        window.matchMedia(
+            "(min-width: 701px)"
+        );
+
+
+    if (!desktop.matches) return;
+
+
+    projectCards.forEach((card) => {
+
+        card.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const mouseX =
+                    event.clientX - rect.left;
+
+
+                const mouseY =
+                    event.clientY - rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                /*
+                 * Keep the rotation subtle.
+                 * This creates the premium 3D
+                 * effect without making the
+                 * card difficult to read.
+                 */
+
+                const rotateY =
+                    ((mouseX - centerX) /
+                        centerX) * 7;
+
+
+                const rotateX =
+                    ((centerY - mouseY) /
+                        centerY) * 7;
+
+
+                card.style.setProperty(
+                    "--project-rx",
+                    `${rotateX}deg`
+                );
+
+
+                card.style.setProperty(
+                    "--project-ry",
+                    `${rotateY}deg`
+                );
+
+
+                /*
+                 * Move the glow with
+                 * the cursor.
+                 */
+
+                const glow =
+                    card.querySelector(
+                        ".project-card-glow"
+                    );
+
+
+                if (glow) {
+
+                    const glowX =
+                        (mouseX - centerX) * 0.08;
+
+
+                    const glowY =
+                        (mouseY - centerY) * 0.08;
+
+
+                    glow.style.transform =
+                        `translate(
+                            ${glowX}px,
+                            ${glowY}px
+                        )`;
+
+                }
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.style.setProperty(
+                    "--project-rx",
+                    "0deg"
+                );
+
+
+                card.style.setProperty(
+                    "--project-ry",
+                    "0deg"
+                );
+
+
+                const glow =
+                    card.querySelector(
+                        ".project-card-glow"
+                    );
+
+
+                if (glow) {
+
+                    glow.style.transform =
+                        "translate(0,0)";
+
+                }
+
+            }
+        );
+
+    });
+
+
+})();
